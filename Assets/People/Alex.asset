@@ -19,3 +19,7 @@ MonoBehaviour:
   defaultText: Have you seen my son? He was with us a moment ago.
   lastWords: My wife and I have led humble good lives. We just want to meet with
     our son and move on.
+  condemnedMessage: "Alex is wondering the mist of limbo in desperate search for
+    his son, sentenced to an eternety of mysery for no reason whatsoever.\t"
+  commendedMessage: Alex' worries and fears have been lifted and he is confident
+    he will soon reunite with his son and wife.

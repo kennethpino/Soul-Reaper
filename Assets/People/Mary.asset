@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726ae9b2a1ce12449b89774429b52adc, type: 3}
   m_Name: Mary
   m_EditorClassIdentifier: 
-  personName: Mary
   isGuilty: 0
-  condemnReaction: NO NO NO! Please I want to be with my son! Where is my son?!
+  personName: Mary
+  condemnReaction: 'Seriously? NO NO NO! Please I want to be with my son! Where is
+    my son?! '
   commendReaction: 'This has been a tragedy but at least the 3 of us can be toghether. '
   defaultText: Jake, my son, he stepped out for a second. Where did he go?
   lastWords: We were alive a minute ago. Now we are dead. So is life. We raised a
     wonderful kid for what?
+  condemnedMessage: 'Mary is in panic mode rummaging through the viel mist in search
+    of her family. Unfortunately for her they have been sent to another place and
+    she will never find them. '
+  commendedMessage: Mary feels the presence of her loved ones very close. Nothin
+    else matters, she will be OK.
