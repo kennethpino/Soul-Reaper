@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Player : ScriptableObject
 {
@@ -8,6 +9,7 @@ public class Player : ScriptableObject
         Debug.Log("***Commend***");
         person.PersonState.IsReaped = true;
         person.PersonState.IsBeingReaped = false;
+        person.PersonState.IsCommended = true;
         return person.CommendReaction;
     }
 
@@ -17,6 +19,7 @@ public class Player : ScriptableObject
         Debug.Log("***Condemn***");
         person.PersonState.IsReaped = true;
         person.PersonState.IsBeingReaped = false;
+        person.PersonState.IsCondemned = true;
         return person.CondemnReaction;
     }
 

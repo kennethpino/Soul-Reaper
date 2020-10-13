@@ -9,7 +9,7 @@ class DialogEngine
     private const string dashSeparation = " - ";
 
     //Creates an options menu for the dialog scenes
-    public string UpdateDialogOptions(Person person)
+    public string GetDialogOptions(Person person)
     {
         Debug.Log("***UpdateDialogOptions***");
 

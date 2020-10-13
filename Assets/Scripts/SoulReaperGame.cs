@@ -43,43 +43,51 @@ public class SoulReaperGame : MonoBehaviour
             try
             {
                 GetUserKey();
+                DisableIntroUI();
 
                 Debug.Log($"[Debug] User key is: {key}");
 
-                //This range goes from 1 to the length of available defaul (navigation) states
-                //Also, the player must not be in a state of dialog to navigate.
+                //Nagigate
                 if (key <= state.GetStates().Length && !dialogEngine.DialogOn)
                 {
-                    DisableIntroUI();
                     UpdateState();
                     UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
                 }
-                //While navifating the user can encounter a state where he can engage dialog with
-                //and NPC by selecting "Talk to". This option will enable that.
+                //Go back to navigating
                 else if (dialogEngine.DialogOn && key == 1)
                 {
                     dialogEngine.DialogOn = false;
                     UpdateState();
                     UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
                 }
+                //Converse
                 else
                 {
-                    person = state.GetPeople()[key - state.GetStates().Length - 1];
-                    UpdateScreenTitle($"talking to {person.PersonName}");
-
+                    //Actions when dialog is enabled for the first time
                     if (!dialogEngine.DialogOn)
                     {
-                        UpdateGameStoryUI(person.DefaultText);
+                        person = state.GetPeople()[key - state.GetStates().Length - 1];
+                        UpdateScreenTitle($"talking to {person.PersonName}");
+
+                        //Person is dead
+                        if (person.PersonState.IsReaped)
+                        {
+                            UpdateGameStoryUI(person.PersonState.IsCondemned ? person.CondemnedMessage : person.CommendedMessage);
+                        }
+                        //Person is alive
+                        else
+                        {
+                            UpdateGameStoryUI(person.DefaultText);
+                        }
                         dialogEngine.DialogOn = true;
                     }
+                    //Actions for an ongoing dialog
                     else
                     {
                         UpdateGameStoryUI(ProcessNPCDialogChoice());
                     }
-                    UpdateOptionsMenuUI(dialogEngine.UpdateDialogOptions(person));
+                    UpdateOptionsMenuUI(dialogEngine.GetDialogOptions(person));
                 }
-                //While the user is engaged in dialog (dialogOn == true), the options menu will 
-                //display dialog choices only by executing this command:
             }
             catch (Exception)
             {
@@ -123,7 +131,6 @@ public class SoulReaperGame : MonoBehaviour
     //Obtain a numeric value for the user input key
     private void GetUserKey()
     {
-
         Debug.Log("***GetUserKey***");
         key = Int32.Parse(Input.inputString);
     }

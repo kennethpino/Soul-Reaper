@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726ae9b2a1ce12449b89774429b52adc, type: 3}
   m_Name: Harry
   m_EditorClassIdentifier: 
-  personName: Harry
   isGuilty: 1
-  isReaped: 0
+  personName: Harry
   condemnReaction: Let's go boys. It's party time in hell!
   commendReaction: Are you nuts? I don't wanna hear no angels playing stupid harps
     and people making muffins! Argh!
   defaultText: My only regret is I did not have more time to add victims to my list.
-  lastWords: Yes. Frack you! Wanna piece of this soul ripah?!
+  lastWords: Yes. Frack you! Wanna piece of this,ripah?!
+  condemnedMessage: Harry is writhing in agony at the sound of hippies singing kumbaya.
+    He has been placed on top of a truck in a parade of  youngsters dancing to  Skillet.
+  commendedMessage: Harry is now Donald's Trump right hand and is supplied on a weekly
+    basis with a group of with juicy to-be-victims. Preferably feminists and libertarians.
