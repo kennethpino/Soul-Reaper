@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726ae9b2a1ce12449b89774429b52adc, type: 3}
+  m_Name: Antonio
+  m_EditorClassIdentifier: 
+  isGuilty: 1
+  personName: Antonio
+  condemnReaction: Are you serious? It was only this once and just to piss Robert
+    off! Noooooo!
+  commendReaction: Phew, for a second there I thought I was doing down where that
+    bastard Robert is, it serves him well.
+  defaultText: Who What Wait! Listen, don't think anything of what I just did. It
+    was Robert who hid that evidence I only want it to punish him for it.
+  lastWords: I know that bribing Robert into sexual favors was wrong, I am sorry.
+    But what he did condemened a man to death. That IS wrong.

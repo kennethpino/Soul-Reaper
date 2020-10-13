@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726ae9b2a1ce12449b89774429b52adc, type: 3}
+  m_Name: Jake
+  m_EditorClassIdentifier: 
+  isGuilty: 0
+  personName: Jake
+  condemnReaction: No. No! this must be a mistake! I am only 16 I have done nothing
+    wrong! Please!
+  commendReaction: Thank you. Hopefully I will find my parents and we can be a family
+    in the after life.
+  defaultText: What. What happened? Am I dead? I remember a bright light and a wave
+    going through my chest.
+  lastWords: No. Have you seen my parents? They must be super worried. Will it hurt?

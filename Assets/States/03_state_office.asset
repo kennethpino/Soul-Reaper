@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528b72abac8dc9245bb37f26b9156fc6, type: 3}
+  m_Name: 03_state_office
+  m_EditorClassIdentifier: 
+  gameStory: 
+  states:
+  - {fileID: 11400000, guid: 27090fdca6241524c9dc3f59a794e745, type: 2}
+  location: Office
+  people:
+  - {fileID: 11400000, guid: e8117e37192856147a01955f306308ea, type: 2}
+  - {fileID: 11400000, guid: e7f77d067d8cda54d90ce14d17f47f31, type: 2}

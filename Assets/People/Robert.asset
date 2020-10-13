@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726ae9b2a1ce12449b89774429b52adc, type: 3}
+  m_Name: Robert
+  m_EditorClassIdentifier: 
+  isGuilty: 1
+  personName: Robert
+  condemnReaction: Yes, whatever. Bernard is also dead and that is all that matters
+    to me.
+  commendReaction: 'Are you new at this job? Ok this is a surprise. Err, than you? '
+  defaultText: I can't believe what I just had to do to keep that fiend Antonio quiet.
+    All for nothing, now we are all corpses, what good did that do?
+  lastWords: Bernard ruined my family, he deserved to die. I took a chance when his
+    wife got murdered and stole the evidence that gave him an aliby.

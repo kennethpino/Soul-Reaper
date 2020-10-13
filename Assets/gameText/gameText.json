@@ -1,0 +1,64 @@
+{
+    "stateDatas": [
+        {
+            "stateName": "99_state_init",
+            "stateLocation": "none",
+            "stateText": "none"
+        },
+        {
+            "stateName": "00_state_welcome",
+            "stateLocation": "Welcome Screen",
+            "stateText": "After centuries of degrading jobs for your old master in the depths of hell, you have atoned yourself enough for a small respite and have been assigned a small job on Earth as a Junior Death Reaper. A bomb in a Police Station resulted in several casualties and it is your job to collect their souls and decide where their fates lie. Chop chop.\n\n<b>[ PRESS <color=green>1</color> TO PROCEED TO THE ENTRANCE ]</b>"
+        },
+        {
+            "stateName": "01_state_start",
+            "stateLocation": "Entrance",
+            "stateText": "You are standing in front of the police station. The building is barely standing after the bomb attack. You can barely see through the ash and smoke.The location is crowded with police, paramedics, the local news and the local crowd. You see the entrance in front of you."
+        },
+        {
+            "stateName": "02_state_corridor",
+            "stateLocation": "Corridor",
+            "stateText": "Pieces plaster and furniture continue to crumble around you. The fire has left nothing behind but a horrid smell and death. You hope that eventually you will get used to this, after all, this is your first day at this new job. “Why am I still susceptible to this smell and heat?” - You wonder. Apparently being a supernatural being does not come with the expected perks."
+        },
+        {
+            "stateName": "03_state_office",
+            "stateLocation": "Office",
+            "stateText": "A desk and a couple of chairs are barely standing and still fighting the fire. You look around and see the ghost of a man staring down at his own corpse with disbelief and a woman's ghost wondering the office searching for something."
+        },
+        {
+            "stateName": "04_state_breakRoom",
+            "stateLocation": "Break Room",
+            "stateText": "A very young soul is sitting at a table next to his old shell while staring at his burned meal. Once in a while he looks up towards the door, then at the microwave and back at the meal. He is in shock and looks quite confused. No, it can’t have been the microwave."
+        },
+        {
+            "stateName": "05_state_waitingRoom",
+            "stateLocation": "Waiting Room",
+            "stateText": "The two tortured souls in front of you hug to comfort each other after this tragic event. Right behind them on a couch rest the corpses of a man and a womanwhere they were waiting for their son before leaving the precinct."
+        },
+        {
+            "stateName": "06_state_wc",
+            "stateLocation": "WC",
+            "stateText": "It seems someone was caught in the middle of some important business before meeting his parents to head back home. What an anticlimactic and silly way to go. You turn away from the corpse sitting on the toilet and face the poor young soul. He stares at himself in the mirror as he tries to process this predicament."
+        },
+        {
+            "stateName": "07_state_lockerRoom",
+            "stateLocation": "Locker Room",
+            "stateText": "As you approach the locker room you begin to hear the shouts of two men. You enter and you see two men engaged in a heated argument. Next to them their corpses lie naked on top of each other. You rise an eyebrow. Are these two aware they are dead?"
+        },
+        {
+            "stateName": "08_state_basement",
+            "stateLocation": "Basement",
+            "stateText": "You see two prisoner cells."
+        },
+        {
+            "stateName": "09_state_cell1",
+            "stateLocation": "Cell#1",
+            "stateText": "You enter the cell and the prisoner smiles at you. The walls are covered by newspaper articles featuring all his crimes, including murder, kidnapping and rape. He took a lot of pride on what he did it seems. One way ticket to wonderland."
+        },
+		{
+            "stateName": "10_state_cell2",
+            "stateLocation": "Cell#2",
+            "stateText": "When the prisoner sees you enter he starts shaking and backs off towards the wall. HE is scared and confused. His cell is full of family photos, books and drawings from his daughter. There is also a newspaper with an article discussing his trial where it is mentioned that at the last minute an important set of evidence went missing and resulted in his conviction for murder."
+        }
+    ]
+}

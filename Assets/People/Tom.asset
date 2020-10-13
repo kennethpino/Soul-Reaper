@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726ae9b2a1ce12449b89774429b52adc, type: 3}
+  m_Name: Tom
+  m_EditorClassIdentifier: 
+  isGuilty: 0
+  personName: Tom
+  condemnReaction: Hell? All I did was develop Hentai games!
+  commendReaction: 'Are there any manga shops in Heaven? '
+  defaultText: Hi, are you here to fix the microwave? I think it exploded.
+  lastWords: So I am dead then. I did not feel anything. This is so weird. Where
+    are we going now then?

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726ae9b2a1ce12449b89774429b52adc, type: 3}
+  m_Name: Mary
+  m_EditorClassIdentifier: 
+  personName: Mary
+  isGuilty: 0
+  condemnReaction: NO NO NO! Please I want to be with my son! Where is my son?!
+  commendReaction: 'This has been a tragedy but at least the 3 of us can be toghether. '
+  defaultText: Jake, my son, he stepped out for a second. Where did he go?
+  lastWords: We were alive a minute ago. Now we are dead. So is life. We raised a
+    wonderful kid for what?
