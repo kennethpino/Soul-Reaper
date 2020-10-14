@@ -1,2 +1,2 @@
-# Soul Reper
+# Soul Reaper
  Soul Reaper Game
