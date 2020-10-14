@@ -14,6 +14,7 @@ public class SoulReaperGame : MonoBehaviour
     [SerializeField] Text optionsMenu = default;
     [SerializeField] Image storyPhoto = default;
     [SerializeField] Text myIntro = default;
+    [SerializeField] Image map = default;
 
     State state;
     Player player;
@@ -32,6 +33,7 @@ public class SoulReaperGame : MonoBehaviour
         player = ScriptableObject.CreateInstance<Player>();
         dialogEngine = new DialogEngine();
         key = 1;
+        map.enabled = false;
         UpdateState();
     }
 
@@ -42,51 +44,58 @@ public class SoulReaperGame : MonoBehaviour
             Debug.Log("***************************Runing Update***************************");
             try
             {
-                GetUserKey();
-                DisableIntroUI();
-
-                Debug.Log($"[Debug] User key is: {key}");
-
-                //Nagigate
-                if (key <= state.GetStates().Length && !dialogEngine.DialogOn)
+                if (Input.GetKeyDown(KeyCode.M))
                 {
-                    UpdateState();
-                    UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
+                    Debug.Log($"[Debug] Input.inputString is: {Input.inputString}");
+                    ToggleMap();
                 }
-                //Go back to navigating
-                else if (dialogEngine.DialogOn && key == 1)
-                {
-                    dialogEngine.DialogOn = false;
-                    UpdateState();
-                    UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
-                }
-                //Converse
                 else
                 {
-                    //Actions when dialog is enabled for the first time
-                    if (!dialogEngine.DialogOn)
-                    {
-                        person = state.GetPeople()[key - state.GetStates().Length - 1];
-                        UpdateScreenTitle($"talking to {person.PersonName}");
+                    GetUserKey();
+                    Debug.Log($"[Debug] User key is: {key}");
+                    DisableIntroUI();
 
-                        //Person is dead
-                        if (person.PersonState.IsReaped)
-                        {
-                            UpdateGameStoryUI(person.PersonState.IsCondemned ? person.CondemnedMessage : person.CommendedMessage);
-                        }
-                        //Person is alive
-                        else
-                        {
-                            UpdateGameStoryUI(person.DefaultText);
-                        }
-                        dialogEngine.DialogOn = true;
+                    //Nagigate
+                    if (key <= state.GetStates().Length && !dialogEngine.DialogOn)
+                    {
+                        UpdateState();
+                        UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
                     }
-                    //Actions for an ongoing dialog
+                    //Go back to navigating
+                    else if (dialogEngine.DialogOn && key == 1)
+                    {
+                        dialogEngine.DialogOn = false;
+                        UpdateState();
+                        UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
+                    }
+                    //Converse
                     else
                     {
-                        UpdateGameStoryUI(ProcessNPCDialogChoice());
+                        //Actions when dialog is enabled for the first time
+                        if (!dialogEngine.DialogOn)
+                        {
+                            person = state.GetPeople()[key - state.GetStates().Length - 1];
+                            UpdateScreenTitle($"talking to {person.PersonName}");
+
+                            //Person is dead
+                            if (person.PersonState.IsReaped)
+                            {
+                                UpdateGameStoryUI(person.PersonState.IsCondemned ? person.CondemnedMessage : person.CommendedMessage);
+                            }
+                            //Person is alive
+                            else
+                            {
+                                UpdateGameStoryUI(person.DefaultText);
+                            }
+                            dialogEngine.DialogOn = true;
+                        }
+                        //Actions for an ongoing dialog
+                        else
+                        {
+                            UpdateGameStoryUI(ProcessNPCDialogChoice());
+                        }
+                        UpdateOptionsMenuUI(dialogEngine.GetDialogOptions(person));
                     }
-                    UpdateOptionsMenuUI(dialogEngine.GetDialogOptions(person));
                 }
             }
             catch (Exception)
@@ -95,6 +104,12 @@ public class SoulReaperGame : MonoBehaviour
                     "\n Try with another key or restart the game.");
             }
         }
+    }
+
+    //Displays a map of the precinct
+    private void ToggleMap()
+    {
+        map.enabled = !map.enabled;
     }
 
     private void DisableIntroUI()
