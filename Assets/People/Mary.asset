@@ -18,6 +18,8 @@ MonoBehaviour:
     my son?! '
   commendReaction: 'This has been a tragedy but at least the 3 of us can be toghether. '
   defaultText: Jake, my son, he stepped out for a second. Where did he go?
+  personDefaultText: A woman is checking herself out. She seems curious at her new
+    state.
   lastWords: We were alive a minute ago. Now we are dead. So is life. We raised a
     wonderful kid for what?
   condemnedMessage: 'Mary is in panic mode rummaging through the viel mist in search
