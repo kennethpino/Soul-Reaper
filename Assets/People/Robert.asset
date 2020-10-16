@@ -19,6 +19,7 @@ MonoBehaviour:
   commendReaction: 'Are you new at this job? Ok this is a surprise. Err, than you? '
   defaultText: I can't believe what I just had to do to keep that fiend Antonio quiet.
     All for nothing, now we are all corpses, what good did that do?
+  personDefaultText: An angry looking man paces the room shaking his head.
   lastWords: Bernard ruined my family, he deserved to die. I took a chance when his
     wife got murdered and stole the evidence that gave him an aliby.
   condemnedMessage: Robert has been reincarnated as a cat owned by a teenage girl

@@ -17,6 +17,7 @@ MonoBehaviour:
   condemnReaction: This is a mistake! I want to be with my son!
   commendReaction: Thank you. I will see my son again.
   defaultText: Have you seen my son? He was with us a moment ago.
+  personDefaultText: A man is standing facing the door waiting for something or someone.
   lastWords: My wife and I have led humble good lives. We just want to meet with
     our son and move on.
   condemnedMessage: "Alex is wondering the mist of limbo in desperate search for

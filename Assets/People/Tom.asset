@@ -17,6 +17,8 @@ MonoBehaviour:
   condemnReaction: Hell? All I did was develop Hentai games!
   commendReaction: 'Are there any manga shops in Heaven? '
   defaultText: Hi, are you here to fix the microwave? I think it exploded.
+  personDefaultText: "A young man looks at the microwave confused. No, it can\u2019t
+    have been the microwave."
   lastWords: So I am dead then. I did not feel anything. This is so weird. Where
     are we going now then?
   condemnedMessage: 'Tom has been sent to a word without any kind of technology,

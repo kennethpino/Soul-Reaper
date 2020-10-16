@@ -29,7 +29,6 @@ public class SoulReaperGame : MonoBehaviour
 
         state = gameState;
         person = ScriptableObject.CreateInstance<Person>();
-        //File.WriteAllText(Application.dataPath + "/person.json", JsonUtility.ToJson(person, true));
         player = ScriptableObject.CreateInstance<Player>();
         dialogEngine = new DialogEngine();
         key = 1;
@@ -210,19 +209,23 @@ public class SoulReaperGame : MonoBehaviour
     }
 
     //Displays the game text of each state
-    private void UpdateStateText(StateDataCollection sdc)
+    private string FindStateText(StateDataCollection sdc)
     {
         Debug.Log("***UpdateStateText***");
+
+        string text = null;
 
         bool nameFound = false;
         for (int i = 0; i < sdc.stateDatas.Count | !nameFound; i++)
         {
             if (state.name == sdc.stateDatas[i].stateName)
             {
-                UpdateGameStoryUI(sdc.stateDatas[i].stateText);
+                text = sdc.stateDatas[i].stateText;
                 nameFound = true;
             }
         }
+
+        return text;
     }
 
     //Displays the game text of each state
@@ -238,10 +241,45 @@ public class SoulReaperGame : MonoBehaviour
     {
         Debug.Log("***UpdateState***");
 
+        string personText = null;
         state = state.GetStates()[key - 1];
         UpdateScreenTitle(state.GetLocationName());
-        UpdateStateText(LoadStateDataCollection(Application.dataPath + gameTextPath));
+        string stateText = FindStateText(LoadStateDataCollection(Application.dataPath + gameTextPath));
         UpdateStoryPhoto();
+
+        try
+        {
+            personText = GetPersonDefaultText();
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"No people were found. Error: {e.Message}");
+        }
+
+        UpdateGameStoryUI($"{stateText} {personText}");
+    }
+
+    private string GetPersonDefaultText()
+    {
+        Person[] people = state.GetPeople();
+        string personText = null;
+        string personTextDead = null;
+        if (people.Length > 0)
+        {
+            foreach (Person person in people)
+            {
+                if (!person.PersonState.IsReaped)
+                {
+                    personText = string.Concat(personText, " ", person.PersonDefaultText);
+                } else
+                {
+                    personTextDead = string.Concat(personTextDead, person.PersonName, " has moved on.");
+                }
+            }
+        }
+
+
+        return string.Concat(personText, personTextDead);
     }
 
     //Updates the screen title/location

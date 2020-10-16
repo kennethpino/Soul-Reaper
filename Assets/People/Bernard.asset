@@ -17,6 +17,8 @@ MonoBehaviour:
   condemnReaction: 'Damned in life, damned in death. '
   commendReaction: Thank God the truth has finally been revealed.
   defaultText: It seems my sentence has arrived earlier than expected.
+  personDefaultText: When the prisoner sees you enter he starts shaking in fear and
+    backs off towards the wall.
   lastWords: Life is cruel. I had a good life. Been good to everyone. Condemned here
     by a bureaucratic mistake. I did not murder my wife. At least this is over now.
   condemnedMessage: As if it was not enough, Bernard is now spending this afterlife
