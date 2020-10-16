@@ -17,6 +17,7 @@ public class SoulReaperGame : MonoBehaviour
     [SerializeField] Image map = default;
 
     State state;
+    State lastState;
     Player player;
     DialogEngine dialogEngine;
     int key;
@@ -43,6 +44,7 @@ public class SoulReaperGame : MonoBehaviour
             Debug.Log("***************************Runing Update***************************");
             try
             {
+                //Toggle map
                 if (Input.GetKeyDown(KeyCode.M))
                 {
                     Debug.Log($"[Debug] Input.inputString is: {Input.inputString}");
@@ -64,7 +66,8 @@ public class SoulReaperGame : MonoBehaviour
                     else if (dialogEngine.DialogOn && key == 1)
                     {
                         dialogEngine.DialogOn = false;
-                        UpdateState();
+                        state = lastState;
+                        UpdateUI();
                         UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
                     }
                     //Converse
@@ -75,6 +78,7 @@ public class SoulReaperGame : MonoBehaviour
                         {
                             person = state.GetPeople()[key - state.GetStates().Length - 1];
                             UpdateScreenTitle($"talking to {person.PersonName}");
+                            lastState = state;
 
                             //Person is dead
                             if (person.PersonState.IsReaped)
@@ -247,10 +251,15 @@ public class SoulReaperGame : MonoBehaviour
     {
         Debug.Log("***UpdateState***");
 
-        string personText = null;
         state = state.GetStates()[key - 1];
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
         UpdateScreenTitle(state.GetLocationName());
         string stateText = FindStateText(LoadStateDataCollection(Application.dataPath + gameTextPath));
+        string personText = null;
         UpdateStoryPhoto();
 
         try
