@@ -193,7 +193,13 @@ public class SoulReaperGame : MonoBehaviour
             else
             {
                 //Debug.Log("***PopulateOptions Person***");
-                action = " - Talk to ";
+                if (((Person)(object)options[j]).PersonState.IsReaped)
+                {
+                    action = " - How is ";
+                } else
+                {
+                    action = " - Talk to ";
+                }
                 option = ((Person)(object)options[j]).PersonName;
                 color = "orange";
             }
