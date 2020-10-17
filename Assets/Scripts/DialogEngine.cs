@@ -13,7 +13,7 @@ class DialogEngine
     {
         Debug.Log("***UpdateDialogOptions***");
 
-        //[POSSIBLE CHOICES] go back, ask for last words, reap soul, commend, condemn
+        //[POSSIBLE CHOICES] go back, ask for last words, reap soul, reward, condemn
         //[CONDITIONS] IsBeingReaped, IsReaped, AskedForLastWords
 
         Debug.Log($"The person is: {person.PersonName}\n");
@@ -42,7 +42,7 @@ class DialogEngine
 
         if (lastWordsShared && isBeingReaped && !isReaped)
         {
-            optList.Add(NPCDialogChoicesEnum.Commend);
+            optList.Add(NPCDialogChoicesEnum.Reward);
             optList.Add(NPCDialogChoicesEnum.Condemn);
         }
         return FormatIndexedMenu(GenerateIndexedMenu(optList));
@@ -79,7 +79,7 @@ class DialogEngine
                 case NPCDialogChoicesEnum.Condemn:
                     items = FormatItemString(items, key, "red", value);
                     break;
-                case NPCDialogChoicesEnum.Commend:
+                case NPCDialogChoicesEnum.Reward:
                     items = FormatItemString(items, key, "green", value);
                     break;
             }

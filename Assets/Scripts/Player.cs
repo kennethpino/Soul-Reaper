@@ -6,14 +6,14 @@ public class Player : ScriptableObject
     public int SoulsReaped { get; set; } = 0;
 
     //Will mark the person as being reaped
-    public string Commend(Person person)
+    public string Reward(Person person)
     {
-        Debug.Log("***Commend***");
+        Debug.Log("***Reward***");
         person.PersonState.IsReaped = true;
         SoulsReaped++;
         person.PersonState.IsBeingReaped = false;
-        person.PersonState.IsCommended = true;
-        return person.CommendReaction;
+        person.PersonState.IsRewarded = true;
+        return person.RewardRaction;
     }
 
     //Will mark the person as being reaped
@@ -29,7 +29,7 @@ public class Player : ScriptableObject
 
     //Will set the status as ongoing reaping
     //The purpose of this middle stage is so that the player
-    //can choose commend or condemning before reaping
+    //can choose reward or condemning before reaping
     public string ReapSoul(Person person)
     {
         Debug.Log("***ReapSoul***");
