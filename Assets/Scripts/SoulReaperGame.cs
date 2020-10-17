@@ -139,7 +139,7 @@ public class SoulReaperGame : MonoBehaviour
         var transform = progressContainer.transform;
         var progressContainerZPos = transform.transform.position.z;
 
-        for (int i = 0; i < soulsReaped; i++, xPosition -= 0.75f)
+        for (int i = 0; i < soulsReaped; i++, xPosition += 0.75f)
         {
             GameObject go = Instantiate(soulPrefab, new Vector3(xPosition, yPosition, progressContainerZPos - 0.06f), Quaternion.identity, transform);
             go.transform.localScale = new Vector3(75f, 75f);
