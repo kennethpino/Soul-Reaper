@@ -107,7 +107,7 @@ public class SoulReaperGame : MonoBehaviour
                             //Person is dead
                             if (person.PersonState.IsReaped)
                             {
-                                UpdateGameStoryUI(person.PersonState.IsCondemned ? person.CondemnedMessage : person.CommendedMessage);
+                                UpdateGameStoryUI(person.PersonState.IsCondemned ? person.CondemnedMessage : person.RewardMessage);
                             }
                             //Person is alive
                             else
@@ -179,8 +179,8 @@ public class SoulReaperGame : MonoBehaviour
                 return player.GetLastWords(person);
             case NPCDialogChoicesEnum.ReapSoul:
                 return player.ReapSoul(person);
-            case NPCDialogChoicesEnum.Commend:
-                return player.Commend(person);
+            case NPCDialogChoicesEnum.Reward:
+                return player.Reward(person);
             case NPCDialogChoicesEnum.Condemn:
                 return player.Condemn(person);
             default:
