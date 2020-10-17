@@ -8,27 +8,27 @@
         {
             "stateName": "00_state_welcome",
             "stateLocation": "Welcome Screen",
-            "stateText": "After centuries of degrading jobs for your old master in the depths of hell, you have atoned yourself enough for a small respite and have been assigned a small job on Earth as a Junior Death Reaper. A bomb in a Police Station resulted in several casualties and it is your job to collect their souls and decide where their fates lie. Chop chop.\n\n<b>[ PRESS <color=green>1</color> TO PROCEED TO THE ENTRANCE ]</b>"
+            "stateText": "After centuries of degrading jobs in the depths of hell, you have atoned yourself enough for a small respite and have been assigned your first job on as a Junior Death Reaper. A bomb in a police station resulted in several casualties and it is up to you to collect their souls and decide their fates. Chop chop.\n\n<b>[ PRESS <color=green>1</color> TO PROCEED TO THE ENTRANCE ]</b>"
         },
         {
             "stateName": "01_state_start",
             "stateLocation": "Entrance",
-            "stateText": "You are standing in front of the police station. The building is barely standing after the bomb attack. You can barely see through the ash and smoke.The location is crowded with police, paramedics, the local news and the local crowd. You see the entrance in front of you."
+            "stateText": "You are standing in front of the police station. The building is barely standing after the explosion. You can barely see through the ash and smoke. The location is crowded with police, paramedics, local news and local crowd. You see the entrance in front of you."
         },
         {
             "stateName": "02_state_corridor",
             "stateLocation": "Corridor",
-            "stateText": "Pieces plaster and furniture continue to crumble around you. The fire has left nothing behind but a horrid smell and death. You hope that eventually you will get used to this, after all, this is your first day at this new job. “Why am I still susceptible to this smell and heat?” - You wonder. Apparently being a supernatural being does not come with the expected perks."
+            "stateText": "Pieces of plaster and furniture crumble around you. The fire has left nothing behind but a horrid smell of death. You hope that eventually will get used to this, after all, this is only your first day. - Why am I still susceptible to this smell and heat? - You wonder. Apparently being a supernatural being does not come with the expected perks."
         },
         {
             "stateName": "03_state_office",
             "stateLocation": "Office",
-            "stateText": "A desk and a couple of chairs are barely standing and still fighting the fire."
+            "stateText": "A desk and a couple of chairs are barely standing and on a few spots you can see the fire's last breath."
         },
         {
             "stateName": "04_state_breakRoom",
             "stateLocation": "Break Room",
-            "stateText": "Nothing has survived the explosion in this room. Only charred wood and the lingering smell of burned plastic and wiring."
+            "stateText": "Nothing has survived the explosion here. Only charred wood and the lingering smell of burned plastic and remain."
         },
         {
             "stateName": "05_state_waitingRoom",
@@ -38,12 +38,12 @@
         {
             "stateName": "06_state_wc",
             "stateLocation": "WC",
-            "stateText": "It seems someone was caught in the middle of some important business. A corpse has melted with the plastic of what yoursed to be a toilet sit. What an anticlimactic and silly way to go."
+            "stateText": "It seems someone was caught in the middle of some important business. A corpse has melted with the plastic of what used to be a toilet seat. - What an anticlimactic and silly way to go. -"
         },
         {
             "stateName": "07_state_lockerRoom",
             "stateLocation": "Locker Room",
-            "stateText": "A bunch of sqashed metal cupboards are piled on the floor. Water from the showers is flooding the room and steaming the air as it touches the nearby objects."
+            "stateText": "A bunch of squashed metal cupboards are piled on the floor. Water from the showers is flooding the room and steaming the air as it collides with the nearby furniture."
         },
         {
             "stateName": "08_state_basement",
