@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class Player : ScriptableObject
 {
+    public int SoulsReaped { get; set; } = 0;
+
     //Will mark the person as being reaped
     public string Commend(Person person)
     {
         Debug.Log("***Commend***");
         person.PersonState.IsReaped = true;
+        SoulsReaped++;
         person.PersonState.IsBeingReaped = false;
         person.PersonState.IsCommended = true;
         return person.CommendReaction;
@@ -18,6 +21,7 @@ public class Player : ScriptableObject
     {
         Debug.Log("***Condemn***");
         person.PersonState.IsReaped = true;
+        SoulsReaped++;
         person.PersonState.IsBeingReaped = false;
         person.PersonState.IsCondemned = true;
         return person.CondemnReaction;

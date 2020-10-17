@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,8 @@ using UnityEngine.UI;
 public class SoulReaperGame : MonoBehaviour
 {
     private const string gameTextPath = @"\gameText\gameText.json";
-
+    private const float xPosition = 1f;
+    private const float yPosition = 4.25f;
     [SerializeField] Text screenTitle = default;
     [SerializeField] Text gameStory = default;
     [SerializeField] State gameState = default;
@@ -15,6 +17,9 @@ public class SoulReaperGame : MonoBehaviour
     [SerializeField] Image storyPhoto = default;
     [SerializeField] Text myIntro = default;
     [SerializeField] Image map = default;
+    [SerializeField] GameObject soulPrefab = default;
+    [SerializeField] GameObject soulPrefabGrayed = default;
+    [SerializeField] GameObject progressContainer = default;
 
     State state;
     State lastState;
@@ -32,9 +37,24 @@ public class SoulReaperGame : MonoBehaviour
         person = ScriptableObject.CreateInstance<Person>();
         player = ScriptableObject.CreateInstance<Player>();
         dialogEngine = new DialogEngine();
+        PlaceProcessBGUI();
+        progressContainer.SetActive(false);
         key = 1;
         map.enabled = false;
-        UpdateState();
+        UpdateState(); 
+    }
+
+    private void PlaceProcessBGUI()
+    {
+        float xPosition = SoulReaperGame.xPosition;
+        var transform = progressContainer.transform;
+        var progressContainerZPos = transform.transform.position.z;
+
+        for (int i = 0; i < 10; i++, xPosition += 0.75f)
+        {
+            GameObject go = Instantiate(soulPrefabGrayed, new Vector3(xPosition, yPosition, progressContainerZPos - 0.05f), Quaternion.identity, transform);
+            go.transform.localScale = new Vector3(75f, 75f);
+        }
     }
 
     void Update()
@@ -96,6 +116,10 @@ public class SoulReaperGame : MonoBehaviour
                         else
                         {
                             UpdateGameStoryUI(ProcessNPCDialogChoice());
+                            if (player.SoulsReaped > 0)
+                            {
+                                UpdateProgressUI(player.SoulsReaped);
+                            }
                         }
                         UpdateOptionsMenuUI(dialogEngine.GetDialogOptions(person));
                     }
@@ -106,6 +130,19 @@ public class SoulReaperGame : MonoBehaviour
                 Debug.Log("Something went wrong. Could be an invalid key or who knows what else." +
                     "\n Try with another key or restart the game.");
             }
+        }
+    }
+
+    private void UpdateProgressUI(int soulsReaped)
+    {
+        float xPosition = SoulReaperGame.xPosition;
+        var transform = progressContainer.transform;
+        var progressContainerZPos = transform.transform.position.z;
+
+        for (int i = 0; i < soulsReaped; i++, xPosition -= 0.75f)
+        {
+            GameObject go = Instantiate(soulPrefab, new Vector3(xPosition, yPosition, progressContainerZPos - 0.06f), Quaternion.identity, transform);
+            go.transform.localScale = new Vector3(75f, 75f);
         }
     }
 
@@ -122,6 +159,7 @@ public class SoulReaperGame : MonoBehaviour
             splashScreen.enabled = false;
             myIntro.enabled = false;
             gameStart = false;
+            progressContainer.SetActive(true);
         }
     }
 
@@ -313,4 +351,5 @@ public class SoulReaperGame : MonoBehaviour
         string json = File.ReadAllText(path);
         return JsonUtility.FromJson<StateDataCollection>(json);
     }
+
 }
