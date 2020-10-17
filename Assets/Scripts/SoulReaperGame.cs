@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SoulReaperGame : MonoBehaviour
 {
-    private const string gameTextPath = @"\gameText\gameText.json";
+    private const string gameTextPath = @"\text\gameText";
     private const float xPosition = 1f;
     private const float yPosition = 4.25f;
     [SerializeField] Text screenTitle = default;
@@ -41,6 +41,10 @@ public class SoulReaperGame : MonoBehaviour
         progressContainer.SetActive(false);
         key = 1;
         map.enabled = false;
+
+        TextAsset textAsset = Resources.Load<TextAsset>("text/gameText");
+        Debug.Log("text asset is " + textAsset.text);
+
         UpdateState(); 
     }
 
@@ -296,7 +300,7 @@ public class SoulReaperGame : MonoBehaviour
     private void UpdateUI()
     {
         UpdateScreenTitle(state.GetLocationName());
-        string stateText = FindStateText(LoadStateDataCollection(Application.dataPath + gameTextPath));
+        string stateText = FindStateText(LoadStateDataCollection(gameTextPath));
         string personText = null;
         UpdateStoryPhoto();
 
@@ -348,7 +352,8 @@ public class SoulReaperGame : MonoBehaviour
     {
         Debug.Log("***LoadStateDataCollection***");
 
-        string json = File.ReadAllText(path);
+        TextAsset textAsset = Resources.Load<TextAsset>("text/gameText");
+        string json = textAsset.text;
         return JsonUtility.FromJson<StateDataCollection>(json);
     }
 
