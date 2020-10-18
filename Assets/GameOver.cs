@@ -19,6 +19,7 @@ public class GameOver : MonoBehaviour
     private const string _incorrectlyCondemned = "Incorectly condemned: <color=red>{0}</color>";
 
     [SerializeField] Text results = default;
+    [SerializeField] Text message = default;
     [SerializeField] GameObject soulReaperGameGO = default;
     SoulReaperGame srg;
 
@@ -85,7 +86,9 @@ public class GameOver : MonoBehaviour
                 conclusion = null;
                 break;
         }
-        results.text = conclusion + "\n\n" + string.Join("\n", resultList);
+
+        message.text = conclusion;
+        results.text = string.Join("\n", resultList);
     }
 
     private int GetCorrectlyJudged()
