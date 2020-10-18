@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameOver.cs" />
     <Compile Include="Assets\Scripts\DialogEngine.cs" />
     <Compile Include="Assets\Scripts\NPCDialogChoices.cs" />
     <Compile Include="Assets\Scripts\NPCDialogChoicesEnum.cs" />

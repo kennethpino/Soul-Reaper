@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +19,8 @@ public class SoulReaperGame : MonoBehaviour
     [SerializeField] GameObject soulPrefabGrayed = default;
     [SerializeField] GameObject progressContainer = default;
     [SerializeField] Person[] people = default;
+    [SerializeField] Camera gameOverCamera = default;
+    [SerializeField] GameObject gameOverGO = default;
 
     State state;
     State lastState;
@@ -28,7 +28,16 @@ public class SoulReaperGame : MonoBehaviour
     DialogEngine dialogEngine;
     int key;
     Person person;
-    private bool gameStart = true;
+    GameOver gOver;
+    private bool isNewGame = true;
+    private bool isGameOver = false;
+
+    public Player GetPlayer()
+    {
+        return player;
+    }
+
+    public Person[] People { get => people; set => people = value; }
 
     void Start()
     {
@@ -42,11 +51,10 @@ public class SoulReaperGame : MonoBehaviour
         progressContainer.SetActive(false);
         key = 1;
         map.enabled = false;
-
+        gameOverCamera.enabled = false;
+        gOver = gameOverGO.GetComponent<GameOver>();
         TextAsset textAsset = Resources.Load<TextAsset>("text/gameText");
-        Debug.Log("text asset is " + textAsset.text);
-
-        UpdateState(); 
+        UpdateState();
     }
 
     private void PlaceProcessBGUI()
@@ -64,93 +72,90 @@ public class SoulReaperGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (!isGameOver)
         {
-            Debug.Log("***************************Runing Update***************************");
-            try
+            if (Input.anyKeyDown)
             {
-                //Toggle map
-                if (Input.GetKeyDown(KeyCode.M))
+                Debug.Log("***************************Runing Update***************************");
+                try
                 {
-                    Debug.Log($"[Debug] Input.inputString is: {Input.inputString}");
-                    ToggleMap();
-                }
-                else
-                {
-                    GetUserKey();
-                    Debug.Log($"[Debug] User key is: {key}");
-                    DisableIntroUI();
-
-                    //Nagigate
-                    if (key <= state.GetStates().Length && !dialogEngine.DialogOn)
+                    //Toggle map
+                    if (Input.GetKeyDown(KeyCode.M))
                     {
-                        UpdateState();
-                        UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
+                        Debug.Log($"[Debug] Input.inputString is: {Input.inputString}");
+                        ToggleMap();
                     }
-                    //Go back to navigating
-                    else if (dialogEngine.DialogOn && key == 1)
-                    {
-                        dialogEngine.DialogOn = false;
-                        state = lastState;
-                        UpdateUI();
-                        UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
-                    }
-                    //Converse
                     else
                     {
-                        //Actions when dialog is enabled for the first time
-                        if (!dialogEngine.DialogOn)
-                        {
-                            person = state.GetPeople()[key - state.GetStates().Length - 1];
-                            UpdateScreenTitle($"Talking to {person.PersonName}");
-                            lastState = state;
+                        GetUserKey();
+                        Debug.Log($"[Debug] User key is: {key}");
+                        DisableIntroUI();
 
-                            //Person is dead
-                            if (person.PersonState.IsReaped)
-                            {
-                                UpdateGameStoryUI(person.PersonState.IsCondemned ? person.CondemnedMessage : person.RewardMessage);
-                            }
-                            //Person is alive
-                            else
-                            {
-                                UpdateGameStoryUI(person.DefaultText);
-                            }
-                            dialogEngine.DialogOn = true;
+                        //Nagigate
+                        if (key <= state.GetStates().Length && !dialogEngine.DialogOn)
+                        {
+                            UpdateState();
+                            UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
                         }
-                        //Actions for an ongoing dialog
+                        //Go back to navigating
+                        else if (dialogEngine.DialogOn && key == 1)
+                        {
+                            dialogEngine.DialogOn = false;
+                            state = lastState;
+                            UpdateUI();
+                            UpdateOptionsMenuUI(GenerateNagivationOptionsMenu());
+                        }
+                        //Converse
                         else
                         {
-                            UpdateGameStoryUI(ProcessNPCDialogChoice());
-                            if (player.SoulsReaped > 0)
+                            //Actions when dialog is enabled for the first time
+                            if (!dialogEngine.DialogOn)
                             {
-                                UpdateProgressUI(player.SoulsReaped);
+                                person = state.GetPeople()[key - state.GetStates().Length - 1];
+                                UpdateScreenTitle($"Talking to {person.PersonName}");
+                                lastState = state;
 
-                                Debug.Log($"[Debug] ----------------- Score is: {player.WrongChoice} out of {GetTotalReaped()} --------------------");
+                                //Person is dead
+                                if (person.PersonState.IsReaped)
+                                {
+                                    UpdateGameStoryUI(person.PersonState.IsCondemned ? person.CondemnedMessage : person.RewardMessage);
+                                }
+                                //Person is alive
+                                else
+                                {
+                                    UpdateGameStoryUI(person.DefaultText);
+                                }
+                                dialogEngine.DialogOn = true;
                             }
+                            //Actions for an ongoing dialog
+                            else
+                            {
+                                UpdateGameStoryUI(ProcessNPCDialogChoice());
+                                if (player.SoulsReaped > 0)
+                                {
+                                    UpdateProgressUI(player.SoulsReaped);
+                                }
+                            }
+                            UpdateOptionsMenuUI(dialogEngine.GetDialogOptions(person));
                         }
-                        UpdateOptionsMenuUI(dialogEngine.GetDialogOptions(person));
                     }
                 }
-            }
-            catch (Exception)
-            {
-                Debug.Log("Something went wrong. Could be an invalid key or who knows what else." +
-                    "\n Try with another key or restart the game.");
+                catch (Exception)
+                {
+                    Debug.Log("Something went wrong. Could be an invalid key or who knows what else." +
+                        "\n Try with another key or restart the game.");
+                }
             }
         }
-    }
 
-    private int GetTotalReaped()
-    {
-        int peopleReaped = 0;
-        foreach (Person person in people)
+        if (player.SoulsReaped == 10)
         {
-            if (person.PersonState.IsReaped)
-            {
-                peopleReaped++;
-            }
+            isGameOver = true;
+            gOver.Run();
+            gOver.DisplayResults();
+            gameOverCamera.enabled = true;
+            GetComponent<SoulReaperGame>().enabled = false;
         }
-        return peopleReaped;
     }
 
     private void UpdateProgressUI(int soulsReaped)
@@ -166,6 +171,8 @@ public class SoulReaperGame : MonoBehaviour
         }
     }
 
+
+
     //Displays a map of the precinct
     private void ToggleMap()
     {
@@ -174,11 +181,11 @@ public class SoulReaperGame : MonoBehaviour
 
     private void DisableIntroUI()
     {
-        if (gameStart)
+        if (isNewGame)
         {
             splashScreen.enabled = false;
             myIntro.enabled = false;
-            gameStart = false;
+            isNewGame = false;
             progressContainer.SetActive(true);
         }
     }
@@ -257,7 +264,8 @@ public class SoulReaperGame : MonoBehaviour
                 if (((Person)(object)options[j]).PersonState.IsReaped)
                 {
                     action = " - How is ";
-                } else
+                }
+                else
                 {
                     action = " - Talk to ";
                 }
@@ -344,7 +352,8 @@ public class SoulReaperGame : MonoBehaviour
                 if (!person.PersonState.IsReaped)
                 {
                     personText = string.Concat(personText, " ", person.PersonDefaultText);
-                } else
+                }
+                else
                 {
                     personTextDead = string.Concat(personTextDead, " ", person.PersonName, " has moved on.");
                 }
@@ -370,5 +379,4 @@ public class SoulReaperGame : MonoBehaviour
         string json = textAsset.text;
         return JsonUtility.FromJson<StateDataCollection>(json);
     }
-
 }
