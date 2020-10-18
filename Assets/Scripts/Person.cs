@@ -25,6 +25,7 @@ public class Person : ScriptableObject
     public string CondemnedMessage { get => condemnedMessage; set => condemnedMessage = value; }
     public string RewardMessage { get => rewardMessage; set => rewardMessage = value; }
     public string PersonDefaultText { get => personDefaultText; set => personDefaultText = value; }
+    public bool IsGuiltyPlayer { get; set; } = false;
 
     public Person()
     {

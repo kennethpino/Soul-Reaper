@@ -20,6 +20,7 @@ public class SoulReaperGame : MonoBehaviour
     [SerializeField] GameObject soulPrefab = default;
     [SerializeField] GameObject soulPrefabGrayed = default;
     [SerializeField] GameObject progressContainer = default;
+    [SerializeField] Person[] people = default;
 
     State state;
     State lastState;
@@ -101,7 +102,7 @@ public class SoulReaperGame : MonoBehaviour
                         if (!dialogEngine.DialogOn)
                         {
                             person = state.GetPeople()[key - state.GetStates().Length - 1];
-                            UpdateScreenTitle($"talking to {person.PersonName}");
+                            UpdateScreenTitle($"Talking to {person.PersonName}");
                             lastState = state;
 
                             //Person is dead
@@ -123,6 +124,8 @@ public class SoulReaperGame : MonoBehaviour
                             if (player.SoulsReaped > 0)
                             {
                                 UpdateProgressUI(player.SoulsReaped);
+
+                                Debug.Log($"[Debug] ----------------- Score is: {player.WrongChoice} out of {GetTotalReaped()} --------------------");
                             }
                         }
                         UpdateOptionsMenuUI(dialogEngine.GetDialogOptions(person));
@@ -135,6 +138,19 @@ public class SoulReaperGame : MonoBehaviour
                     "\n Try with another key or restart the game.");
             }
         }
+    }
+
+    private int GetTotalReaped()
+    {
+        int peopleReaped = 0;
+        foreach (Person person in people)
+        {
+            if (person.PersonState.IsReaped)
+            {
+                peopleReaped++;
+            }
+        }
+        return peopleReaped;
     }
 
     private void UpdateProgressUI(int soulsReaped)
@@ -334,8 +350,6 @@ public class SoulReaperGame : MonoBehaviour
                 }
             }
         }
-
-
         return string.Concat(personText, personTextDead);
     }
 
