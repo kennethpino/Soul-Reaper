@@ -16,16 +16,16 @@ MonoBehaviour:
   personName: Sandra
   condemnReaction: 'I deserve this. It''s my fault that poor man was sentenced to
     die. '
-  commendReaction: Oh my God thank you! The Lord saw that deep inside I am a good
-    person and that in the past I was under a bad influence.
+  rewardReaction: Oh my God thank you! The Lord saw that deep inside I am a good
+    person. I was weak and manipulated into doing something very cruel.
   defaultText: I can still fix it...where are the papers?! They were on my desk...maybe
     Robert took them to ensure I would not chicken out.
   personDefaultText: A woman's ghost is wondering the office searching for something.
-  lastWords: My love for Robert drove me mad and encouraged me to do the unthinkable.
+  lastWords: My obsession with Robert drove me mad and made me to do the unthinkable.
     If I could only take it all back.
   condemnedMessage: She has landed a new job as a private buttler for her ex-lover
-    Robert at his new beach house. Everyday she gets to live a new episode of sunburn
-    and  itchy sandy body parts.
-  commendedMessage: Despite her recent flubs, Sandra has been given the choice to
-    be reborn and lead an exemplary life. Any shenanigans and she will be reincarnated
-    once more in the shape of Paris' Hilton next Tinkerbell.
+    Robert. Everyday she gets to live a new episode of sunburn and  itchy sandy body
+    parts.
+  rewardMessage: Despite her recent flubs, Sandra has been given the choice to be
+    reborn and lead an exemplary life. Any shenanigans and she will be reincarnated
+    once more in the shape of Paris Hilton' next Tinkerbell.

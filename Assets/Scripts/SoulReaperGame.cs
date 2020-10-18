@@ -330,7 +330,7 @@ public class SoulReaperGame : MonoBehaviour
                     personText = string.Concat(personText, " ", person.PersonDefaultText);
                 } else
                 {
-                    personTextDead = string.Concat(personTextDead, person.PersonName, " has moved on.");
+                    personTextDead = string.Concat(personTextDead, " ", person.PersonName, " has moved on.");
                 }
             }
         }

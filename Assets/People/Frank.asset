@@ -15,7 +15,7 @@ MonoBehaviour:
   isGuilty: 0
   personName: Frank
   condemnReaction: Curse you! What have I done to deserve this?
-  commendReaction: I made it! Oh yeah biatch.
+  rewardReaction: I made it! Oh yeah biatch.
   defaultText: This must be some kind of hallucination...
   personDefaultText: A man staring down at his own corpse with disbelief.
   lastWords: Last words? Am I going to die? Wait. Am I dead? Oh my god no. I don't
@@ -23,5 +23,5 @@ MonoBehaviour:
     been good... *Sobs*
   condemnedMessage: Frank is stuck in his own head trying to process what just happend.
     At the moment there is not knowing what he will be facing.
-  commendedMessage: Frank is jumping from ride to ride in an amazing amusement park
+  rewardMessage: Frank is jumping from ride to ride in an amazing amusement park
     and eating cotton candy.

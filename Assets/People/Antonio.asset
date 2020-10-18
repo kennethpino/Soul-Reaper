@@ -15,20 +15,19 @@ MonoBehaviour:
   isGuilty: 1
   personName: Antonio
   condemnReaction: Are you serious? It was only this once and just to piss Robert
-    off! Noooooo!
-  commendReaction: Phew, for a second there I thought I was doing down where that
-    bastard Robert is, it serves him well.
-  defaultText: Who What Wait! Listen, don't think anything of what I just did. It
-    was Robert who hid that evidence I only want it to punish him for it.
+    off! - Uh huh -  Noooooo!
+  rewardReaction: 'Phew... for a second there I thought I was doing down. '
+  defaultText: Who? What? Wait! Listen... What I just did... Robert deserves it!
+    He condemned an innecent man because of this puruit for revenge!
   personDefaultText: A man stands looking at the corpse of his old colleague with
     a guilty took.
-  lastWords: I know that bribing Robert into sexual favors was wrong, I am sorry.
-    But what he did condemened a man to death. That IS wrong.
-  condemnedMessage: Antonio is busy servicing a queue of spiked-horned-smelly-honrsy
+  lastWords: 'I know that bribing Robert into sexual favors was wrong, I am sorry.
+    But after what he did he well deserved it. '
+  condemnedMessage: Antonio is  servicing a queue of spiked-horned-smelly-horney
     demons as per your request. That will teach him to force other people down their
     knees.
-  commendedMessage: 'Antonio is living in a harem surrounded by beatiful men who
-    please him and serve him at will.
+  rewardMessage: 'Antonio is living in a harem surrounded by beautiful men who please
+    him and serve him at will.
 
-    - "I knew that forcing sexually other
-    people was not evil!"'
+    - "I knew that forcing other people into doing
+    naughty things was not evil!" -'
