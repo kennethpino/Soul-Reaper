@@ -1,10 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : ScriptableObject
 {
     public int SoulsReaped { get; set; } = 0;
-    public int Score { get; set; } = 0;
     public int WrongChoice { get; private set; } = 0;
 
     //Will mark the person as being reaped
@@ -16,7 +14,6 @@ public class Player : ScriptableObject
         person.PersonState.IsBeingReaped = false;
         person.PersonState.IsRewarded = true;
         person.IsGuiltyPlayer = false;
-        ProcessAnswer(person);
         return person.RewardRaction;
     }
 
@@ -29,16 +26,7 @@ public class Player : ScriptableObject
         person.PersonState.IsBeingReaped = false;
         person.PersonState.IsCondemned = true;
         person.IsGuiltyPlayer = true;
-        ProcessAnswer(person);
         return person.CondemnReaction;
-    }
-
-    private void ProcessAnswer(Person person)
-    {
-        if (person.IsGuiltyPlayer == person.IsGuilty)
-        {
-            WrongChoice++;
-        }
     }
 
     //Will set the status as ongoing reaping
