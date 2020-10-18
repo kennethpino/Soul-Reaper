@@ -15,14 +15,14 @@ MonoBehaviour:
   isGuilty: 0
   personName: Bernard
   condemnReaction: 'Damned in life, damned in death. '
-  commendReaction: Thank God the truth has finally been revealed.
+  rewardReaction: "I never thought I would see the day. Thank you. It is reaasuring
+    knowing that lies and deceit can't fool the keepers of the after life.\t"
   defaultText: It seems my sentence has arrived earlier than expected.
-  personDefaultText: When the prisoner sees you enter he starts shaking in fear and
-    backs off towards the wall.
+  personDefaultText: When the prisoner sees you enter he trembles with fear and backs
+    off againt the wall.
   lastWords: Life is cruel. I had a good life. Been good to everyone. Condemned here
-    by a bureaucratic mistake. I did not murder my wife. At least this is over now.
-  condemnedMessage: As if it was not enough, Bernard is now spending this afterlife
-    path in another prison cell surrounded by the people who ruined his life while
-    they point and laugh at him.
-  commendedMessage: Bernard has been reunited with his wife and all his memories
-    of pain and suffering have been erased and lives in peace and plenty of joy.
+    by a bureaucratic mistake. I did not murder my wife, I swear.
+  condemnedMessage: As if it was not enough, Bernard is now locked in another prison
+    cell surrounded by the people who ruined his life.
+  rewardMessage: Bernard has been reunited with his wife and all his memories of
+    pain and suffering have been erased.

@@ -16,15 +16,16 @@ MonoBehaviour:
   personName: Robert
   condemnReaction: Yes, whatever. Bernard is also dead and that is all that matters
     to me.
-  commendReaction: 'Are you new at this job? Ok this is a surprise. Err, than you? '
+  rewardReaction: Are you new at this job? Ok this is a surprise. Err, than you?
   defaultText: I can't believe what I just had to do to keep that fiend Antonio quiet.
     All for nothing, now we are all corpses, what good did that do?
-  personDefaultText: An angry looking man paces the room shaking his head.
-  lastWords: Bernard ruined my family, he deserved to die. I took a chance when his
-    wife got murdered and stole the evidence that gave him an aliby.
-  condemnedMessage: Robert has been reincarnated as a cat owned by a teenage girl
-    and is constantly harassed into performing funny feats for her "Funny cats" Youtube
-    channel list.
-  commendedMessage: White sand, clear waters, the sound of waves, a cocktail with
-    an umbrela and a private buttler. Robert is living the life. A life that he totally
-    does not deserve. Maybe there has been a misscalculation.
+  personDefaultText: An angry looking man paces the room back and forth shaking his
+    head.
+  lastWords: Bernard ruined my family, he deserved to die. Yes, I stole the evidence
+    that would have spared him. Sue me.
+  condemnedMessage: Robert has been reincarnated as a cat owned by a teenage girl.
+    He constantly harassed into performing funny feats for her "Funny cats" Youtube
+    channel.
+  rewardMessage: White sand, clear waters, the sound of waves, a cocktail with an
+    umbrella and a private butler. Robert is living the life. A life that he totally
+    does not deserve. Maybe this was a mistake?

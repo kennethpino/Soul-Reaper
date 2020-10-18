@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGuilty: 0
   personName: Alex
-  condemnReaction: This is a mistake! I want to be with my son!
-  commendReaction: Thank you. I will see my son again.
-  defaultText: Have you seen my son? He was with us a moment ago.
+  condemnReaction: "This is a mistake! Please, my son! I want to be with my son!\t"
+  rewardReaction: Thank you! I can't wait to be reunited with my family.
+  defaultText: Have you seen my son? He was with us just a moment ago.
   personDefaultText: A man is standing facing the door waiting for something or someone.
-  lastWords: My wife and I have led humble good lives. We just want to meet with
-    our son and move on.
-  condemnedMessage: "Alex is wondering the mist of limbo in desperate search for
-    his son, sentenced to an eternety of mysery for no reason whatsoever.\t"
-  commendedMessage: Alex' worries and fears have been lifted and he is confident
-    he will soon reunite with his son and wife.
+  lastWords: My wife and I have led good and humble lives. Our family is what's most
+    important to us. Let us be toghether.
+  condemnedMessage: Alex is wondering through the mist of limbo in a desperate search
+    for his son, sentenced to an eternety of mysery because of your horrible judgement.
+  rewardMessage: Alex' worries and fears have been lifted. He is confident he will
+    soon be reunited with his son and wife.
